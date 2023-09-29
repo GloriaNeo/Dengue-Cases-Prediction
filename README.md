@@ -10,7 +10,7 @@ ___________________________________
    - 3.1 Modelling_Time Series
    - 3.2 Modelling_Regression
    - 4.0 CBA
-2) pckls
+2) pkls
      - Please download pickle model file [here](https://drive.google.com/drive/folders/1MmjVV4qxu6ekcuTxdn3KB2sEYNp5UFJO) and save it under this folder
 3) data
 4) images
@@ -96,7 +96,7 @@ Perform a cost-benefit analysis of the Wolbachia implementation by using informa
 
 Below is our project workflow:
 
-<img src="./images/Workflow Diagram 1.png" alt="drawing" width="700"/>
+![](./images/Workflow_Diagram_1.png)
 
 ### Models
 
@@ -203,13 +203,19 @@ Furthermore, with observations and research about how weather features take abou
 
 ## Conclusion of model results
 
-The 52-week prediction window showed poor results with the SARIMA/SARIMAX models, with the prediction quickly approaching mean after the first quarter. Hence, we've gone ahead with the 12-week prediction window for the other regression models.
+We explored a 52-week prediction window, versus the 12-week prediction window on the SARIMAX model, as well as various 12-week predictions for different quarters of 2022. Here are some key observations: <br>
+
+* **Enhanced Short-Term Accuracy:** <br> The 12-week model demonstrates stronger predictive capability when operating within the shorter three-month intervals. The model's accuracy improves when focused on immediate changes and fluctuations within the data, resulting in more accurate predictions for these compact timeframes.
+
+* **Differential Performance in Trends:** <br> Comparing across the various quarters of predictions, the 12-week model excels in accurately predicting downward trends in dengue cases. However, it exhibits challenges in effectively capturing upward spikes or surges in cases. This suggests that the model may require more complex data inputs to capture factors that contribute to surges, such as serotype information that can significantly impact the dynamics of dengue outbreaks.
+
+From these findings, we decided to focus on testing the 12-week prediction window for the remaining models. We will be predicting the first quarter of 2022 (Jan to Mar) as we are interested to see if our model is able to predict the initial spike of a potential dengue outbreak.
 
 Results are as follows:
 
 ![](./images/model_summary.png)
 
-Sarimax is the best performing model with test RMSE of 133 and MAPE of 0.31. However, the model is still not capturing the initial climb of the dengue cases well.
+Sarimax is the best performing model with test RMSE of 133 and MAPE of 0.31. However, the model is still not capturing the spike of the dengue cases well enough.
 
 ### Model improvement suggestions
 
